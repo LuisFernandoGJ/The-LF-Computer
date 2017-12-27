@@ -230,8 +230,8 @@ function Overwrite(){
 	CharsUpdate();
 	setTimeout( function() {
 	
-	scope = (scope + 3) %256; // scope returns
-	dwScope = scope;
+	scope = (scope + 3) %256;
+	dwScope = scope; // scope returns
 	CharsUpdate();
 	setTimeout( function() {Computing();}, 500);
 	}, 500);}, 500);}, 500);}, 500);}, 500);
@@ -257,9 +257,11 @@ function Read(){
 	
 	if ( memory[value1] == 1 ){
 		scope = value2;
+	}else{
+		scope = (scope + 3) %256;
 	}
-	dwScope = scope;
-	CharsUpdate(); // If address1 is 01, then scope goes to value2
+	dwScope = scope; // If address1 is 01, then scope goes to value2
+	CharsUpdate();
 	setTimeout( function() {Computing();}, 500);
 	}, 500);}, 500);}, 500);
 }
