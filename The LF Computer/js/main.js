@@ -21,7 +21,7 @@ function Init(){
 	btnStart.style = "position: absolute; top: 256px;"
 	btnStart.style.left = (window.innerWidth/2 - 64) + "px";
 	btnStart.innerHTML = "Start";
-	btnStart.onclick = function() { scope = 0; dwScope = 0; CharsUpdate(); setTimeout(Computing(), 500); };
+	btnStart.onclick = function() { scope = 0; dwScope = 0; CharsUpdate(); setTimeout(Computing(), delay); };
 	
 	btnClear = document.createElement('button');
 	btnClear.style = "position: absolute; top: 256px;"
