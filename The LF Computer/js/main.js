@@ -9,7 +9,7 @@ function Init(){
 	// Html objects
 	txtMemory = document.createElement('p');
 	txtMemory.style = "text-align: center; top: 32px; font-size: 20px;"
-	txtMemory.style.fontFamily = "consolas";
+	txtMemory.style.fontFamily = "Courier New";
 	
 	btnPut = document.createElement('button');
 	btnPut.style = "position: absolute; top: 256px;"
