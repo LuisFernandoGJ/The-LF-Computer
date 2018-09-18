@@ -180,6 +180,9 @@ function Computing(){
 		case 3:
 			setTimeout(Read(), delay);
 			break;
+		case 16:
+			setTimeout(Invert(), delay);
+			break;
 		case 33:
 			setTimeout(Sum(), delay);
 			break;
