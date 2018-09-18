@@ -329,8 +329,8 @@ function Sum(){
 
 function Invert(){
 
-	value1 = memory[(scope+1) %256]; // Stores the value1
-	value2 = memory[(scope+2) %256]; // Stores the value2
+	value1 = memory[(scope+1) %256]; // Stores the value1. 00 = 2 complement. !00 = 2 complement - 1
+	value2 = memory[(scope+2) %256]; // Stores the value2. Address
 	
 	dwScope = (dwScope + 1) %256; // scope on value1
 	CharsUpdate();
@@ -340,15 +340,12 @@ function Invert(){
 	CharsUpdate();
 	setTimeout( function() {
 	
-	dwScope = value1; // scope on address1
-	CharsUpdate();
-	setTimeout( function() {
-	
 	dwScope = value2; // scope on address2
 	CharsUpdate();
 	setTimeout( function() {
 	
-	memory[value2] = (memory[value2] + memory[value1]) %256; // Change value
+	if(value1 != 0){ memory[value2]--; }
+	memory[value2] = (-memory[value2]) %256;
 	CharsUpdate();
 	setTimeout( function() {
 	
@@ -356,7 +353,7 @@ function Invert(){
 	dwScope = scope; // scope returns
 	CharsUpdate();
 	setTimeout( function() {Computing();}, delay);
-	}, delay);}, delay);}, delay);}, delay);}, delay);
+	}, delay);}, delay);}, delay);}, delay);
 	
 }
 
