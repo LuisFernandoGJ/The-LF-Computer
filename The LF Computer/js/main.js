@@ -283,7 +283,7 @@ function Read(){
 	CharsUpdate();
 	setTimeout( function() {
 	
-	if ( memory[value1] == 1 ){
+	if ( memory[value1] != 0 ){
 		scope = value2;
 	}else{
 		scope = (scope + 3) %256;
@@ -296,6 +296,39 @@ function Read(){
 
 function Sum(){
 	
+	value1 = memory[(scope+1) %256]; // Stores the value1
+	value2 = memory[(scope+2) %256]; // Stores the value2
+	
+	dwScope = (dwScope + 1) %256; // scope on value1
+	CharsUpdate();
+	setTimeout( function() {
+	
+	dwScope = (dwScope + 1) %256; // scope on value2
+	CharsUpdate();
+	setTimeout( function() {
+	
+	dwScope = value1; // scope on address1
+	CharsUpdate();
+	setTimeout( function() {
+	
+	dwScope = value2; // scope on address2
+	CharsUpdate();
+	setTimeout( function() {
+	
+	memory[value2] = (memory[value2] + memory[value1]) %256; // Change value
+	CharsUpdate();
+	setTimeout( function() {
+	
+	scope = (scope + 3) %256;
+	dwScope = scope; // scope returns
+	CharsUpdate();
+	setTimeout( function() {Computing();}, delay);
+	}, delay);}, delay);}, delay);}, delay);}, delay);
+	
+}
+
+function Invert(){
+
 	value1 = memory[(scope+1) %256]; // Stores the value1
 	value2 = memory[(scope+2) %256]; // Stores the value2
 	
