@@ -348,7 +348,7 @@ function Invert(){
 	setTimeout( function() {
 	
 	if(value1 != 0){ memory[value2]--; }
-	memory[value2] = (-memory[value2]) %256;
+	memory[value2] = (256-memory[value2]) %256;
 	CharsUpdate();
 	setTimeout( function() {
 	
